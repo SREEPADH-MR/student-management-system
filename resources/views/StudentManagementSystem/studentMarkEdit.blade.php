@@ -44,8 +44,8 @@
                                 <div class="row mb-3">
                                     <label class="form-label">Name</label>
                                     <div class="col-sm-12">
-                                        <select name="student" class="form-select" aria-label="Default select example">
-                                            <option>-- Choose a student --</option>
+                                        <select name="student" class="form-select" aria-label="Default select example" required>
+                                            <option value="">-- Choose a student --</option>
                                             @foreach ($students as $student)
                                             <option value="{{ $student->id }}" @selected(old('student', $studentMarkEdit->student->name) == $student->name)>
                                                 {{ $student->name }}
@@ -60,13 +60,13 @@
                                     <label class="form-label">Term selection</label>
                                     <div class="col-sm-10">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="term" id="term1" value="M" @checked(old('term', $studentMarkEdit->term) == "ONE")>
+                                            <input class="form-check-input" type="radio" name="term" id="term1" value="ONE" required @checked(old('term', $studentMarkEdit->term) == "ONE")>
                                             <label class="form-check-label" for="term1">
                                                 ONE
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="term" id="term2" value="F" @checked(old('term', $studentMarkEdit->term) == "TWO")>
+                                            <input class="form-check-input" type="radio" name="term" id="term2" value="TWO" required @checked(old('term', $studentMarkEdit->term) == "TWO")>
                                             <label class="form-check-label" for="term2">
                                                 TWO
                                             </label>
@@ -76,21 +76,21 @@
                             </div>
                             <div class="col-12">
                                 <label for="maths" class="form-label">Maths</label>
-                                <input type="text" name="maths" class="form-control @error('maths') is-invalid @enderror" id="maths" value="{{ $studentMarkEdit->maths }}">
+                                <input type="text" name="maths" class="form-control @error('maths') is-invalid @enderror" id="maths" value="{{ $studentMarkEdit->maths }}" required>
                                 @error('maths')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <label for="science" class="form-label">Science</label>
-                                <input type="text" name="science" class="form-control @error('science') is-invalid @enderror" id="science" value="{{ $studentMarkEdit->science }}">
+                                <input type="text" name="science" class="form-control @error('science') is-invalid @enderror" id="science" value="{{ $studentMarkEdit->science }}" required>
                                 @error('science')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <label for="history" class="form-label">History</label>
-                                <input type="text" name="history" class="form-control @error('history') is-invalid @enderror" id="history" value="{{ $studentMarkEdit->history }}">
+                                <input type="text" name="history" class="form-control @error('history') is-invalid @enderror" id="history" value="{{ $studentMarkEdit->history }}" required>
                                 @error('history')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

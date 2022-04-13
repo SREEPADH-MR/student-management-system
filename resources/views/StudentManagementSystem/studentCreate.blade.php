@@ -42,14 +42,14 @@
                             @csrf
                             <div class="col-12">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ old('name') }}" required>
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <label for="age" class="form-label">Age</label>
-                                <input type="age" name="age" class="form-control @error('age') is-invalid @enderror" id="age" value="{{ old('age') }}">
+                                <input type="age" name="age" class="form-control @error('age') is-invalid @enderror" id="age" value="{{ old('age') }}" required>
                                 @error('age')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -59,13 +59,13 @@
                                     <label class="form-label">Gender</label>
                                     <div class="col-sm-10">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="M" @checked(old('gender'))>
+                                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="M" @checked(old('gender')) required>
                                             <label class="form-check-label" for="gender1">
                                                 Male
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="F" @checked(old('gender'))>
+                                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="F" @checked(old('gender')) required>
                                             <label class="form-check-label" for="gender2">
                                                 Female
                                             </label>
@@ -77,8 +77,8 @@
                                 <div class="row mb-3">
                                     <label class="form-label">Reporting Teacher</label>
                                     <div class="col-sm-12">
-                                        <select name="reportingTeacher" class="form-select" aria-label="Default select example">
-                                            <option>-- Choose a teacher --</option>
+                                        <select name="reportingTeacher" class="form-select" aria-label="Default select example" required>
+                                            <option value="">-- Choose a teacher --</option>
                                             @foreach ($teachers as $teacher)
                                             <option value="{{ $teacher->id }}" @selected(old('reportingTeacher'))>
                                                 {{ $teacher->name }}
